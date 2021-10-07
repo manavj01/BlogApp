@@ -23,11 +23,11 @@ const PostSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  createdDate: {
-    type: Date,
+  // createdDate: {
+  //   type: Date,
     
-  }
-})
+  // }
+},  { timestamps: true })
 
 const post = mongoose.model('post', PostSchema);
 

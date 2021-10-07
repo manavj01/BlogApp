@@ -5,7 +5,10 @@ const URL = 'mongodb://username:username@webdev-shard-00-00.ztgu1.mongodb.net:27
 
 const Connection = async () => {
   try {
-    await mongoose.connect(URL)
+    await mongoose.connect(URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
     console.log("Database Connected Succesfully");
   } catch (error) {
     console.log('Error While connecting to MongoDB', error);

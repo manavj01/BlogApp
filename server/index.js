@@ -10,7 +10,7 @@ const Connection = require ('./database/db')
 const app = express();
 
 app.use(cors())
-app.use(express.json({extended :true}));
+app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 app.use('/', Router)
