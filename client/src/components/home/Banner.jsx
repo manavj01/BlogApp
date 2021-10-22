@@ -37,7 +37,7 @@ const Banner = () => {
   return (
     <Box className={classes.image} >
       <Typography className={classes.first_child}>BLOG</Typography>
-      <Typography className={classes.second_child}>Code for interview</Typography>
+      <Typography className={classes.second_child}>Coding is Passion</Typography>
     </Box>
   )
 }

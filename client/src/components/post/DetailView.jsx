@@ -6,6 +6,9 @@ import { Link, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getPost, deletePost } from '../../service/api';
 
+// components
+import Comments from '../comments/Comments';
+
 const useStyles = makeStyles({
   container:
   {
@@ -92,12 +95,13 @@ const DetailView = ({ match }) => {
 
       <Box className={classes.subheading}>
         <Link to={`/?username=${post.username}`} className={classes.link} >
-          <Typography>Author: <span style={{ fontWeight: 600 }} > {post.username} </span></Typography>
+          <Typography>Author: <span style={{ fontWeight: 600 }} > {post.username ? post.username.substring(0, 5) : ""} </span></Typography>
         </Link>
-        <Typography style={{ marginLeft: "auto" }} >{new Date(post.createdDate).toDateString()}</Typography>
+        <Typography style={{ marginLeft: "auto" }} >{new Date(post.createdAt).toDateString()}</Typography>
       </Box>
 
       <Typography>{post.description}</Typography>
+      <Comments post={post} />
     </Box>
   )
 }

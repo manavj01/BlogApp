@@ -5,6 +5,7 @@ import AddCircle from '@mui/icons-material/AddCircle';
 import { useEffect, useState } from "react";
 import { createPost, uploadFile } from "../../service/api";
 import { useHistory } from 'react-router-dom'
+import { useOktaAuth } from "@okta/okta-react";
 
 
 const useStyles = makeStyles({
@@ -57,14 +58,15 @@ const initialValue = {
 
 
 const CreateView = () => {
-
+  
+  const {authState} = useOktaAuth();
   const classes = useStyles();
   const history = useHistory();
   
   const savePost = async () => {
     try {
       
-      await createPost(post);
+      await createPost({...post, username: authState.accessToken?.claims?.sub || ""});
       history.push('/')
     } catch (error) {
       console.log("ye error hai");

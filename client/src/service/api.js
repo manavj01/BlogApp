@@ -61,3 +61,29 @@ export const uploadFile = async (data) => {
   }
 
 }
+
+export const newComment = async (data) => {
+  try {
+    return await axios.post(`${URL}/comment/new`, data);
+  } catch (error) {
+    console.log('Errow while calling newComment API', error);
+  }
+}
+
+export const getComments = async (id) => {
+  try {
+    console.log(id);
+    let response = await axios.get(`${URL}/comments/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log('Errow while calling getComments API', error);
+  }
+}
+
+export const deleteComment = async (id) => {
+  try {
+    return await axios.delete(`${URL}/comment/delete/${id}`);
+  } catch (error) {
+    console.log('Errow while calling deleteComment API', error);
+  }
+}
