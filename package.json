@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "build": "cd ..\\client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "package": "cd client && yarn && yarn build && cd .. && yarn start"
   },
   "author": "",
   "license": "ISC",
