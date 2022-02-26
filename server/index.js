@@ -1,8 +1,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-
+const path = require('path');
 // components
 const Router = require('./routes/route')
 const Connection = require('./database/db')
@@ -14,12 +13,18 @@ app.use(cors());
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', Router);
 
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+app.use('/api', Router);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
 app.listen(config.PORT, () => {
+  Connection();
   console.log(`server is running on port ${config.PORT}`);
   console.log(`---------------------------------`);
 })
 
-Connection();

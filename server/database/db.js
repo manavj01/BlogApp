@@ -14,8 +14,4 @@ const Connection = async () => {
   }
 }
 
-
-
-mongoose.connect(URL);
-
 module.exports = Connection;
