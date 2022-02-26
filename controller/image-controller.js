@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const grid = require('gridfs-stream')
 
-const url = 'http://localhost:3000'
+const url = ''
 
 let gfs;
 const conn = mongoose.connection;

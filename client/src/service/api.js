@@ -1,6 +1,6 @@
-import axios from 'axios';
+import Axios from 'axios';
 
-const URL = 'http://localhost:3000/api';
+const axios = Axios.create({baseURL: "/api"});
 
 export const createPost = async (post) => {
 
