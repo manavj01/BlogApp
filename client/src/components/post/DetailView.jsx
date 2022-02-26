@@ -80,7 +80,7 @@ const DetailView = ({ match }) => {
 
   return (
     <Box className={classes.container} >
-      <img src={post.picture || url} alt='banner' className={classes.image} />
+      <img src={post.picture ? window.location.origin + '/api' + post.picture : url} alt='banner' className={classes.image} />
       <Box className={classes.icons}>
 
         <Link to={`/update/${post._id}`} > <EditIcon className={classes.icon} color='primary' /></Link>
