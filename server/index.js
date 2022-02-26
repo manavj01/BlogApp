@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 // components
 const Router = require('./routes/route')
 const Connection = require('./database/db')
+const config = require('./config');
 
 const app = express();
 
@@ -15,10 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', Router);
 
-const PORT = 8000;
 
-app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
+app.listen(config.PORT, () => {
+  console.log(`server is running on port ${config.PORT}`);
   console.log(`---------------------------------`);
 })
 
