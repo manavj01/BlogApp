@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.17.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "package": "cd ..\\client && yarn build && cd ..\\server && yarn start"
+    "start": "node index.js",
+    "build": "cd ..\\client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +21,9 @@
     "mongoose": "^5.12.13",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^5.0.0",
-    "nodemon": "^2.0.7",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
