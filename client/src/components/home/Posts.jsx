@@ -8,13 +8,14 @@ const Posts = () => {
 
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  // let posts = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   useEffect(() => {
     const fetchData = async () => {
       let data = await getAllPosts(search);
-      console.log(data);
-      setPosts(data);
+      if(typeof data !== "undefined") {
+        setPosts(data);
+        console.log(data);
+      }
     }
     fetchData();
   }, [search])
