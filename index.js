@@ -22,7 +22,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-app.listen(config.PORT, () => {
+app.listen(process.env.PORT, () => {
   Connection();
   console.log(`server is running on port ${config.PORT}`);
   console.log(`---------------------------------`);
