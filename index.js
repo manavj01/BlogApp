@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 
 app.listen(process.env.PORT, () => {
   Connection();
-  console.log(`server is running on port ${config.PORT}`);
+  console.log(`server is running on port ${process.env.PORT}`);
   console.log(`---------------------------------`);
 })
 
