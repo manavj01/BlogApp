@@ -19,6 +19,7 @@ app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 app.use('/api', Router);
 
 app.get('*', (req, res) => {
+  console.log("DIRECTORY NAME IS :",__dirname);
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
